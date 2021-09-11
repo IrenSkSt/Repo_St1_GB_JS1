@@ -3,7 +3,6 @@
     /*Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15. Можно сделать решение двумя способами. Второй способ - использовать рекурсию, можно без switch*/
 
 
-
     var a = parseInt(Math.random() * 15);
     var ind = 0;
 
@@ -12,7 +11,60 @@
 
     if (a < 15) {
         console.log("Последовательность чисел:\n");
-        // дописать
+        switch (a) { // это рабочий вариант  - надо переделать - слишком длинный код, много повторений
+            case 0:
+                console.log(a + "\n");
+                ++a;
+            case 1:
+                console.log(a + "\n");
+                ++a;
+            case 2:
+                console.log(a + "\n");
+                ++a;
+            case 3:
+                console.log(a + "\n");
+                ++a;
+            case 4:
+                console.log(a + "\n");
+                ++a;
+            case 5:
+                console.log(a + "\n");
+                ++a;
+            case 6:
+                console.log(a + "\n");
+                ++a;
+            case 7:
+                console.log(a + "\n");
+                ++a;
+            case 8:
+                console.log(a + "\n");
+                ++a;
+            case 9:
+                console.log(a + "\n");
+                ++a;
+            case 10:
+                console.log(a + "\n");
+                ++a;
+            case 11:
+                console.log(a + "\n");
+                ++a;
+            case 12:
+                console.log(a + "\n");
+                ++a;
+            case 13:
+                console.log(a + "\n");
+                ++a;
+            case 14:
+                console.log(a + "\n");
+                ++a;
+            case 15:
+                console.log(a + "\n");
+                ++a;
+                break;
+
+            default:
+                break;
+        }
 
     } else {
         console.log("Последовательность чисел: " + 15);
