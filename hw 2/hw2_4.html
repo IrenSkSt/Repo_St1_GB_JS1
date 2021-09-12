@@ -1,0 +1,83 @@
+<script>
+    //Задание 5
+    /*Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.*/
+    function sum(x, y) {
+        return x + y;
+    }
+
+    function subtract(x, y) {
+        return x - y;
+    }
+
+    function multiplication(x, y) {
+        return x * y;
+    }
+
+    function division(x, y) {
+        return x / y;
+    }
+
+    var a = parseInt(Math.random() * 20 - 10);
+    var b = parseInt(Math.random() * 20 - 10);
+    alert("Сгенерированы два числа: " + a + ", " + b);
+    var operation = "operation";
+
+    // для проверки
+    // if (a % b == 0 && b != 0) {
+    //     console.log(division(a, b));
+    // } else if (a >= 0 && b > 0) {
+    //     console.log(subtract(a, b));
+    // } else if (a < 0 && b < 0) {
+    //     console.log(multiplication(a, b));
+    // } else {
+    //     console.log(sum(a, b));
+    // }
+
+
+    //Задание 6
+    /*Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 5) и вернуть полученное значение (использовать switch).*/
+
+    function mathOperation(arg1, arg2, operation) {
+        if (operation == "Деление") {
+            return division(a, b);
+        } else if (operation == "Вычетание") {
+            return subtract(a, b);
+        } else if (operation == "Умножение") {
+            return multiplication(a, b);
+        } else {
+            return sum(a, b);
+        }
+    }
+
+    if (a % b == 0 && b != 0) {
+        operation = "Деление";
+    } else if (a >= 0 && b > 0) {
+        operation = "Вычетание";
+    } else if (a < 0 && b < 0) {
+        operation = "Умножение";
+    } else {
+        operation = "Сумма";
+    }
+
+    // для проверки
+    // console.log(operation);
+
+
+    switch (operation) {
+        case "Сумма":
+            alert("Сумма чисел = " + mathOperation(a, b, "Сумма"));
+            break;
+        case "Вычетание":
+            alert("Разница чисел = " + mathOperation(a, b, "Вычетание"));
+            break;
+        case "Умножение":
+            alert("Произведение чисел = " + mathOperation(a, b, "Умножение"));
+            break;
+        case "Деление":
+            alert("Результат деления чисел = " + mathOperation(a, b, "Деление"));
+            break;
+
+        default:
+            break;
+    }
+</script>
