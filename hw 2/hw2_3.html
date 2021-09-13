@@ -4,8 +4,22 @@
 
 
     var a = parseInt(Math.random() * 15);
-    var ind = 0;
 
+    // 2-й вариант через рекурсивную функцию
+
+    function numbers(x) {
+        if (x > 15) {
+            return 0;
+        }
+        document.write("<h3>" + x + "</h3>\n");
+        numbers(x + 1);
+    }
+    document.write("<h3>Заданное число: " + a + "</h3>\n");
+    document.write("<h3>Последовательность чисел:</h3>\n");
+    numbers(a);
+
+
+    // 1-й вариант решения без циклов и рекурсии - !См в консоле
     console.log("Заданное число: " + a);
 
 
@@ -69,10 +83,6 @@
     } else {
         console.log("Последовательность чисел: " + 15);
     }
-
-
-
-
 
 
 
