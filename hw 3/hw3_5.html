@@ -1,0 +1,29 @@
+<script>
+    //Задание 5*
+    /*Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:
+x
+xx
+xxx
+xxxx
+xxxxx
+*/
+
+    var size = 20;
+    var tr = 1; //счетчик строк
+    var td = 1 // счетчик ширины
+    var wide = "" // ширина строки
+
+
+
+    while (tr <= size) {
+
+        while (td <= tr) {
+            wide += "x"
+            console.log(wide);
+            td++;
+        }
+
+        tr++;
+    }
+
+</script>
