@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        // Задание 3
+        /* Товары в корзине хранятся в массиве. Задачи:
+        *a) Организовать такой массив для хранения товаров в корзине;
+        
+        *b) Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+        */
+
+        var goods = [ // массив товаров магазина
+            {
+                title: 'Товар 1',
+                price: 100,
+                count: 5
+            },
+            {
+                title: 'Товар 2',
+                price: 200,
+                count: 3
+            },
+            {
+                title: 'Товар 3',
+                price: 300,
+                count: 2
+            },
+        ];
+        console.log(goods); // для проверки
+
+        var cart = []; // пустая корзина
+        var sumPos = 0;
+        var totalSum = 0;
+        function countBasketPrice(count, price) {
+            sumPos = (position.price * position.count);
+            totalSum += sumPos;
+        }
+
+        for (var item of goods) {
+            alert(item.title + " стоит " + item.price);
+            if (confirm("Хотите добавить в корзину?")) {
+                cart.push(item);
+
+                for (position of cart) {
+                    position.count = 1; // доделать, чтобы не перезаписывал в массиве с товарами
+                }
+                //item.count -= 1; // доделать, чтобы уменьшалось значение, сейчас перезаписывается
+            }
+
+        }
+        console.log(cart); // для проверки
+
+
+        if (cart[0]) {
+            document.write("<h2>Ваши покупки</h2>");
+            for (var position of cart) {
+                countBasketPrice(position.count, position.price); // стоимость одной позиции товара
+                document.write("\n<h3>" + position.title + "</h3>" + "\n<p>" + position.count + " * " + position.price + " = " + sumPos + "</p>");
+
+            }
+            document.write("\n<h2>Стоимость всех товаров = " + totalSum + "</h2>");
+        } else {
+            alert("Ваша корзина пуста");
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
