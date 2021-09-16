@@ -38,11 +38,12 @@
         console.log(goods); // для проверки
 
         var cart = []; // пустая корзина
+
         for (var item of goods) {
             alert(item.title + " стоит " + item.price);
             if (confirm("Хотите добавить в корзину?")) {
                 cart.push(item);
-                item.count -= 1;
+                item.count -= 1; // доделать, чтобы уменьшалось значение
                 for (item of cart) {
                     item.count = 1;
                 }
@@ -52,13 +53,19 @@
         }
         console.log(cart); // для проверки
 
-        // var s = 0;
-        // for (var item of goods) {
-        //     alert(item.title + " стоит " + item.price);
-        //     s += item.price // суммируем стоимость всех товаров
-        // }
-        // alert("Стоимость всех товаров = " + s);
-
+        var sumItem = 0;
+        var totalSum = 0;
+        if (cart[0]) {
+            document.write("<h2>Ваши покупки</h2>");
+            for (var item of cart) {
+                sumItem = (item.price * item.count); // стоимость одной позиции товара
+                document.write("\n<h3>" + item.title + "</h3>" + "\n<p>" + item.count + " * " + item.price + " = " + sumItem + "</p>");
+                totalSum += sumItem; // суммируем стоимость всех товаров
+            }
+            document.write("\n<h2>Стоимость всех товаров = " + totalSum + "</h2>");
+        } else {
+            alert("Ваша корзина пуста");
+        }
 
     </script>
 
