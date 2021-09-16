@@ -43,11 +43,11 @@
             alert(item.title + " стоит " + item.price);
             if (confirm("Хотите добавить в корзину?")) {
                 cart.push(item);
-                item.count -= 1; // доделать, чтобы уменьшалось значение
-                for (item of cart) {
-                    item.count = 1;
-                }
 
+                for (item of cart) {
+                    item.count = 1; // доделать, чтобы не перезаписывал в массиве с товарами
+                }
+                //item.count -= 1; // доделать, чтобы уменьшалось значение, сейчас перезаписывается
             }
 
         }
