@@ -173,13 +173,19 @@ function recovering(n) {
         recover = +prompt("Какой вопрос с Вашим ответом вывести на экран?\nВам было задано " + answers.length + " вопроса" + '\n-1 - Выход из игры');
 
         if (recover == -1) {
-            alert("Игра завершена")
+            // alert("Игра завершена")
             break;
         }
         else {
             ok = isAnswer(answers.length, recover);
-            alert(answers[recover - 1].question + "\n Ваш ответ " + answers[recover - 1].answerUser + " " + answers[recover - 1].mean);
-            next = +prompt("Продолжить? \n1 - продолжить \n-1 - Выход из игры");
+            if (!ok) {
+                continue;
+            } else {
+                alert(answers[recover - 1].question + "\n Ваш ответ "/* + answers[recover - 1].answerUser + " "*/ + answers[recover - 1].mean);
+                next = +prompt("Продолжить? \n1 - продолжить \n-1 - Выход из игры");
+                ok = isAnswer(1, next);
+            }
+
         }
     } while (!ok || next == 1);
 
