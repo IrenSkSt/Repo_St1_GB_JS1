@@ -15,9 +15,15 @@
             padding: 5px;
 
             text-align: center;
+            font-size: 28px;
 
-            background-color: lightgray;
-            /* визуально черно-белая доска, но можно эту пару цветов поменять*/
+            background-color: tan;
+            /* визуально коричневая доска как в примере, но можно эту пару цветов поменять*/
+        }
+
+        td {
+            width: 50px;
+            height: 50px;
         }
     </style>
 
@@ -36,23 +42,36 @@
         var table = document.createElement("table"), tr, td, ntr, ntd;
 
         // var writeTd = ["a", "b", "c", "d", "e", "f", "g", "h"];
-        var figureStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
+        var figuresLesStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
+        // var figuresBlackStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
+        // var figuresWhiteStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
 
-        table.style.width = "700px";
-        table.style.height = "700px";
+        // table.style.width = "700px";
+        // table.style.height = "700px";
+
+
+
 
         function chessboard(ntr, ntd) { // функция шахматной доски
             for (var i = 1; i <= ntr; i++) {
                 tr = document.createElement("tr"); // создали строку
                 table.append(tr); // поместили строку в таблицу
 
-                for (var j = 1; j <= ntd; j++) {
+                for (var j = 1, k = 0; j <= ntd, k < figuresLesStartTd1.length; j++, k++) {
 
                     td = document.createElement("td"); // создали столбец
+                    if (i == 2 || i == ntr - 1) { // выставили фигуры - 1я буква названия фигуры
+                        td.innerText = "П";
+                    } else if (i == 1 || i == ntr) {
+                        td.innerText = "" + figuresLesStartTd1[k] + "";
+                    }
+                    if (i == ntr - 1 || i == ntr) { // белые фигуры
+                        td.style.color = "white";
+                    }
                     tr.append(td); // вставили столбец в строку
 
                     if (i % 2 != 0 && j % 2 == 0 || i % 2 == 0 && j % 2 != 0) { // закрашиваем клетки в шахматном порядке
-                        td.style.backgroundColor = "black";
+                        td.style.backgroundColor = "rgb(108, 63, 4)";
 
                     } else {
                         continue;
