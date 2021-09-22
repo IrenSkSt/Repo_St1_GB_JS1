@@ -41,10 +41,10 @@
         // создаем шахматную доску
         var table = document.createElement("table"), tr, td, ntr, ntd;
 
-        // var writeTd = ["a", "b", "c", "d", "e", "f", "g", "h"];
-        var figuresLesStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
-        // var figuresBlackStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
-        // var figuresWhiteStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
+        var writeTd = ["a", "b", "c", "d", "e", "f", "g", "h"];
+        // var figuresLesStartTd1 = ["Л", "К", "С", "Ф", "К", "С", "К", "Л"];
+        var figuresBlackStartTd1 = ["&#9820;", "&#9822;", "&#9821;", "&#9819;", "&#9818;", "&#9821;", "&#9822;", "&#9820;"];
+        var figuresWhiteStartTd1 = ["&#9814;", "&#9816;", "&#9815", "&#9813;", "&#9812;", "&#9815", "&#9816;", "&#9814;"];
 
         // table.style.width = "700px";
         // table.style.height = "700px";
@@ -57,16 +57,19 @@
                 tr = document.createElement("tr"); // создали строку
                 table.append(tr); // поместили строку в таблицу
 
-                for (var j = 1, k = 0; j <= ntd, k < figuresLesStartTd1.length; j++, k++) {
+                for (var j = 1, k = 0; j <= ntd, k < ntd - 1; j++, k++) {
 
                     td = document.createElement("td"); // создали столбец
-                    if (i == 2 || i == ntr - 1) { // выставили фигуры - 1я буква названия фигуры
-                        td.innerText = "П";
-                    } else if (i == 1 || i == ntr) {
-                        td.innerText = "" + figuresLesStartTd1[k] + "";
+                    if (i == 2) { // выставили фигуры - черные
+                        td.innerHTML = "&#9823;";
+                    } else if (i == 1) {
+                        td.innerHTML = "" + figuresBlackStartTd1[k] + "";
                     }
-                    if (i == ntr - 1 || i == ntr) { // белые фигуры
-                        td.style.color = "white";
+                    else if (i == ntr) {
+                        td.innerHTML = "" + figuresWhiteStartTd1[k] + "";// выставили фигуры - белые
+                    }
+                    if (i == ntr - 1) { // белые фигуры
+                        td.innerHTML = "&#9817;";
                     }
                     tr.append(td); // вставили столбец в строку
 
@@ -87,6 +90,8 @@
         chessboard(8, 8);
         document.querySelector("div").append(table);
 
+        // добавляем подписи
+        // document.querySelector("div").append(table);
 
     </script>
 

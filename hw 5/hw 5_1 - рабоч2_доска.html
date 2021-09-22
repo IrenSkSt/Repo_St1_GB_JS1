@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,
+        td {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 5px;
+            background-color: lightgray;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div></div>
+
+
+
+    <script>
+        // создаем таблицу
+        // var table = document.createElement("table"), tr, td; // создали таблицу и переменные строк и столбцов
+
+        // for (var i = 1; i <= 10; i++) {
+        //     tr = document.createElement("tr"); // создали строку
+        //     table.append(tr); // поместили строку в таблицу
+
+        //     for (var j = 1; j <= 10; j++) {
+        //         td = document.createElement("td"); // создали столбец
+        //         td.innerHTML = "<h2>" + (i * j) + "&#9822;</h2>"; // в ячейку добавили произведение №строки на №столбца и значок с черной шахматной фигуркой коня
+        //         tr.append(td); // вставили столбец в строку
+        //     }
+        // }
+
+        // document.querySelector("div").append(table); // добавили таблицу в див
+
+
+        // создаем шахматную доску
+        var table = document.createElement("table"), tr, td;
+        // var writeTd = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+        table.style.width = "700px";
+        table.style.height = "700px";
+
+        function chessboard(ntr, ntd) {
+            for (var i = 1; i <= ntr; i++) {
+                tr = document.createElement("tr"); // создали строку
+                table.append(tr); // поместили строку в таблицу
+
+                for (var j = 1; j <= ntd; j++) {
+
+                    td = document.createElement("td"); // создали столбец
+                    tr.append(td); // вставили столбец в строку
+
+                    if (i % 2 != 0 && j % 2 == 0) { // закрашиваем клетки в шахматном порядке
+                        td.style.backgroundColor = "black";
+                    } if (i % 2 == 0 && j % 2 != 0) {
+                        td.style.backgroundColor = "black";
+                    } else {
+                        continue
+                    }
+
+
+                }
+            }
+        }
+
+        chessboard(8, 8);
+        document.querySelector("div").append(table);
+
+
+    </script>
+
+
+
+</body>
+
+</html>
