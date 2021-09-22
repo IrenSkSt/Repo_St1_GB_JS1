@@ -42,12 +42,7 @@
         var table = document.createElement("table"), tr, td, ntr, ntd;
 
         var writeTd = ["a", "b", "c", "d", "e", "f", "g", "h"];
-        var figuresLesStartTd1 = ["Л", "К", "С", "Ф", "К", "С", "К", "Л"];
-
-
-        // table.style.width = "700px";
-        // table.style.height = "700px";
-
+        var figuresLesStartTd1 = ["Л", "К", "С", "К", "Ф", "С", "К", "Л"];
 
 
 
@@ -86,8 +81,48 @@
         chessboard(8, 8);
         document.querySelector("div").append(table);
 
+
+        //++++++++++++++++++++++++++++++
         // добавляем подписи
-        // document.querySelector("div").append(table);
+        var trNewDown = document.createElement("tr"), tdNewDown; // подпись буквами по оси X внизу
+        lineLetters(8);
+        table.appendChild(trNewDown);
+
+
+        function lineLetters(let) {
+            for (var x = 1, l = 0; x <= let, l < writeTd.length; x++, l++) {
+
+                tdNewDown = document.createElement("td");
+                tdNewDown.innerText = "" + writeTd[l] + "";
+                // tdNewDown.id = "tdNew";
+                tdNewDown.style.backgroundColor = "oldlace";
+                tdNewDown.style.color = "brown";
+                tdNewDown.style.border = "none";
+                tdNewDown.style.height = "25px";
+
+                trNewDown.append(tdNewDown);
+            }
+        }
+
+        var trNewUp = document.createElement("tr"), tdNewUp; // подпись буквами по оси X сверху
+
+        table.insertBefore(trNewUp, table.children[0]);
+        lineLettersUp(8);
+
+        function lineLettersUp(let) {
+            for (var x = let, l = let - 1; x >= 1, l >= 0; x--, l--) {
+
+                tdNewUp = document.createElement("td");
+                tdNewUp.innerText = "" + writeTd[l] + "";
+                // tdNewUp.id = "tdNew";
+                tdNewUp.style.backgroundColor = "oldlace";
+                tdNewUp.style.color = "brown";
+                tdNewUp.style.border = "none";
+                tdNewUp.style.height = "25px";
+
+                trNewUp.append(tdNewUp);
+            }
+        }
 
     </script>
 
