@@ -82,7 +82,7 @@
         document.querySelector("div").append(table);
 
 
-        //++++++++++++++++++++++++++++++
+        //+++++++++++++++++++++++++++++++++++
         // добавляем подписи
         var trNewDown = document.createElement("tr"), tdNewDown; // подпись буквами по оси X внизу
         lineLetters(8);
@@ -97,8 +97,9 @@
                 // tdNewDown.id = "tdNew";
                 tdNewDown.style.backgroundColor = "oldlace";
                 tdNewDown.style.color = "brown";
+                tdNewDown.style.fontSize = "18px";
                 tdNewDown.style.border = "none";
-                tdNewDown.style.height = "25px";
+                tdNewDown.style.height = "20px";
 
                 trNewDown.append(tdNewDown);
             }
@@ -117,12 +118,63 @@
                 // tdNewUp.id = "tdNew";
                 tdNewUp.style.backgroundColor = "oldlace";
                 tdNewUp.style.color = "brown";
+                tdNewUp.style.fontSize = "18px";
                 tdNewUp.style.border = "none";
-                tdNewUp.style.height = "25px";
+                tdNewUp.style.height = "20px";
 
                 trNewUp.append(tdNewUp);
             }
         }
+
+
+        // подпись цифрами по оси Y слева
+        var trNewLeft = document.querySelectorAll("tr"), tdNewLeft;
+        lineNumbersLeft(8);
+
+
+        function lineNumbersLeft(numb) {
+            for (var s = 0; s <= numb + 1; s++) {
+                tdNewLeft = document.createElement("td");
+                if (s >= 1 && s <= numb) {
+                    tdNewLeft.innerText = "" + s + "";
+                    tdNewLeft.style.backgroundColor = "oldlace";
+                    tdNewLeft.style.color = "brown";
+                    tdNewLeft.style.fontSize = "18px";
+                    tdNewLeft.style.border = "none";
+                    tdNewLeft.style.width = "20px";
+                }
+
+                trNewLeft[s].insertBefore(tdNewLeft, trNewLeft[s].children[0]);
+            }
+        }
+
+
+        // подпись цифрами по оси Y справа
+        var trNewRight = document.querySelectorAll("tr"), tdNewRight;
+        lineNumbersRight(8);
+
+
+        function lineNumbersRight(numb) {
+            for (var y = 0, n = numb + 1; y <= numb + 1, n >= 1; y++, n--) {
+                // console.log(trNewLeft[y]); // для проверки
+                //trNew[y].innerHTML += "<td>" + n + "</td>";
+
+                tdNewRight = document.createElement("td");
+                if (y >= 1 && y <= numb) {
+                    tdNewRight.innerText = "" + n + "";
+                    tdNewRight.style.backgroundColor = "oldlace";
+                    tdNewRight.style.color = "brown";
+                    tdNewRight.style.fontSize = "18px";
+                    tdNewRight.style.border = "none";
+                    tdNewRight.style.width = "20px";
+                }
+                //trNewRight.append(tdNewRight);
+                trNewRight[y].insertBefore(tdNewRight, trNewRight[y].children[numb + 1]);
+            }
+
+        }
+
+
 
     </script>
 
