@@ -142,13 +142,17 @@
                 tdNewLeft = document.createElement("td");
                 if (s >= 1 && s <= numb) {
                     tdNewLeft.innerText = "" + s + "";
-                    tdNewLeft.style.backgroundColor = "oldlace";
+
                     tdNewLeft.style.color = "brown";
                     tdNewLeft.style.fontSize = "18px";
-                    tdNewLeft.style.border = "none";
-                    tdNewLeft.style.width = "20px";
-                }
 
+                }
+                tdNewLeft.style.backgroundColor = "oldlace";
+                tdNewLeft.style.border = "none";
+                tdNewLeft.style.width = "20px";
+                if (s == 0 || s == numb + 1) {
+                    tdNewLeft.style.height = "20px";
+                }
                 trNewLeft[s].insertBefore(tdNewLeft, trNewLeft[s].children[0]);
             }
         }
@@ -160,20 +164,23 @@
 
 
         function lineNumbersRight(numb) {
-            for (var y = 0, n = numb + 1; y <= numb + 1, n >= 1; y++, n--) {
-                // console.log(trNewLeft[y]); // для проверки
-                //trNew[y].innerHTML += "<td>" + n + "</td>";
+            for (var y = 0, n = numb + 1; y <= numb + 1, n >= 0; y++, n--) {
 
                 tdNewRight = document.createElement("td");
                 if (y >= 1 && y <= numb) {
                     tdNewRight.innerText = "" + n + "";
-                    tdNewRight.style.backgroundColor = "oldlace";
+
                     tdNewRight.style.color = "brown";
                     tdNewRight.style.fontSize = "18px";
-                    tdNewRight.style.border = "none";
-                    tdNewRight.style.width = "20px";
+
                 }
-                //trNewRight.append(tdNewRight);
+                tdNewRight.style.backgroundColor = "oldlace";
+                tdNewRight.style.border = "none";
+                tdNewRight.style.width = "20px";
+                if (y == 0 || y == numb + 1) {
+                    tdNewRight.style.height = "20px";
+                }
+
                 trNewRight[y].insertBefore(tdNewRight, trNewRight[y].children[numb + 1]);
             }
 
