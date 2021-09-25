@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Задание 1 -->
+    <!-- Сделать маленькие картинки. По нажатию на каждую должна открываться большая картинка ниже маленьких картинок-->
+
+    <!-- минимальная стилистика странички -->
+    <style>
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .content {
+            margin: 50px;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        .box {
+            max-height: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .big_foto {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- минимально необходимый контент -->
+    <div class="container">
+        <div class="content">
+            <img id="c1" src="img_small/card1.svg" alt="">
+            <img id="c2" src="img_small/card2.svg" alt="">
+            <img id="c3" src="img_small/card3.svg" alt="">
+        </div>
+        <div class="box"></div>
+    </div>
+
+
+
+    <script>
+
+
+        var imgs = document.querySelectorAll("img"); // коллекция текущих картинок
+
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function (e) {
+                document.querySelector('.box').innerHTML = ""; // очищаем коробку, если там уже была картинка
+                var imgBig = document.createElement('img'); // создаем новый объект картинки
+                imgBig.src = "img" + (e.target.id[1] - 1) + ".jpg";
+                document.querySelector('.box').append(imgBig); // добавляем в коробку
+                imgBig.onclick = function () { // по нажатию на картинку скроется
+                    this.classList.add('big_foto');
+                }
+            }
+        }
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
