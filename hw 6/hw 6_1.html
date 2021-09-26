@@ -59,8 +59,11 @@
             imgs[i].onclick = function (e) {
                 document.querySelector('.box').innerHTML = ""; // очищаем коробку, если там уже была картинка
                 var imgBig = document.createElement('img'); // создаем новый объект картинки
-                imgBig.src = "img" + (e.target.id[1] - 1) + ".jpg";
+                imgBig.src = "img_big/img" + (e.target.id[1] - 1) + ".jpg";
                 document.querySelector('.box').append(imgBig); // добавляем в коробку
+                imgBig.onerror = function () {
+                    alert("Ошибка: файл не найден");
+                }
                 imgBig.onclick = function () { // по нажатию на картинку скроется
                     this.classList.add('big_foto');
                 }
