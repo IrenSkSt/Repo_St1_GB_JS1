@@ -1,0 +1,44 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.cart {
+    margin-bottom: 50px;
+    padding: 20px 0;
+    border: 1px solid gray;
+}
+.cart > figure {
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.box_cards {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 150px;
+    height: 250px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+
+
